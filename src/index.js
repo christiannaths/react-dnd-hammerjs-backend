@@ -133,6 +133,8 @@ export class HammerJSBackend {
     addEventListener(subject, event, handler) {
         const listener = listeners[subject] || new Hammer(subject);
         listener.on(event, handler);
+
+        listeners[subject] = listener;
     }
 
     removeEventListener(subject, event, handler) {
